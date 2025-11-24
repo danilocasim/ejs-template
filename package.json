@@ -1,0 +1,29 @@
+{
+  "name": "ejs-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danilocasim/ejs-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/danilocasim/ejs-template/issues"
+  },
+  "homepage": "https://github.com/danilocasim/ejs-template#readme",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.936.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "express-validator": "^7.3.1"
+  }
+}
