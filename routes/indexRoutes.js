@@ -1,9 +1,9 @@
-const { Router } = require("express");
+import { Router } from "express";
+import { getAllBooks, addBook } from "../controller/BookController.js";
 
 const indexRouter = Router();
 
-indexRouter.get("/", (req, res) => {
-  res.render("pages/index");
-});
+indexRouter.get("/", getAllBooks);
+indexRouter.post("/addBook", addBook);
 
-module.exports = indexRouter;
+export { indexRouter };

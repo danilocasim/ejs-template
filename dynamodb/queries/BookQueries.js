@@ -1,8 +1,8 @@
-require("dotenv").config();
+import "dotenv/config";
 
 const { REGION, ACCESS_KEY, SECRET_ACCESS_KEY } = process.env;
 
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb";
 import {
   PutCommand,
   DynamoDBDocumentClient,
@@ -45,21 +45,11 @@ export const getBook = async (title, genre) => {
   return response;
 };
 
-export const updateBook = async (title, genre, newTitle) => {
-  const command = new UpdateCommand({
+export const getAllBooks = async () => {
+  const command = new ScanCommand({
     TableName: "Book",
-    Key: {
-      Title: title,
-      Genre: genre,
-    },
-    UpdateExpression: "set Title = :title",
-    ExpressionAttributeValues: {
-      ":title": newTitle,
-    },
-    ReturnValues: "ALL_NEW",
   });
 
   const response = await docClient.send(command);
-  console.log(response);
   return response;
 };

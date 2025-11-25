@@ -6,6 +6,23 @@
     <title>Home</title>
   </head>
   <body>
-    <h1>Homepage</h1>
+    <% if (locals.books) { %>
+    <ol>
+      <% books.forEach((book) => { %>
+      <li><%= book.Title.S %></li>
+      <p><%= book.Genre.S %></p>
+
+      <% }) %>
+    </ul>
+    <% } %>
+
+    <form action="/addBook" method="post">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" />
+      <label for="genre">Genre</label>
+      <input type="text" name="genre" id="genre" />
+
+      <button type="submit">Add Books</button>
+    </form>
   </body>
 </html>
